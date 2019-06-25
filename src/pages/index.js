@@ -1,20 +1,30 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import Countdown from 'react-countdown-now';
+import Layout from "../components/layout";
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+
+ 
+// Random component
+const Completionist = () => <span>You are good to go!</span>;
+const weddingDay = new Date('June 26, 2019 18:24:00');
+// Renderer callback with condition
+const renderer = ({ days, hours, minutes, seconds, completed }) => {
+  if (completed) {
+    // Render a completed state
+    return <Completionist />;
+  } else {
+    // Render a countdown
+    return <h1> {days} days {hours} hours {minutes} minutes {seconds} seconds</h1>;
+  }
+};
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+      <Countdown
+    date={weddingDay}
+    renderer={renderer}
+  />
+  <h1> to go </h1>
   </Layout>
 )
 
