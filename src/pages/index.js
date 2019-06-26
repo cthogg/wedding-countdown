@@ -6,7 +6,7 @@ import Layout from "../components/layout";
  
 // Random component
 const Completionist = () => <span>You are good to go!</span>;
-const weddingDay = new Date('August 19, 2019 13:00:00');
+const weddingDay = new Date('August 17, 2019 13:00:00');
 // Renderer callback with condition
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
